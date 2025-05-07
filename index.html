@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>exemplesoftX</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 30px;
+    }
+
+    .button {
+      padding: 20px 40px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.4s ease;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .button-1 {
+      background: linear-gradient(135deg, #1E9B64, #3AE369);
+      color: white;
+    }
+
+    .button-2 {
+      background: linear-gradient(135deg, #3A8BE3, #1E63A7);
+      color: white;
+    }
+
+    .button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .button:active {
+      transform: translateY(2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="button-container">
+    <button class="button button-1" onclick="window.location.href='https://www.google.com/search?q=site+search'">Search Site</button>
+    <button class="button button-2" onclick="window.location.href='https://www.google.com/search?q=information+search'">Search Information</button>
+  </div>
+
+</body>
+</html>
