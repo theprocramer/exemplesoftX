@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>exeplesoftX</title>
+  <style>
+    /* Genel stil */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      text-align: center;
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-top: 100px;
+      letter-spacing: 1px;
+    }
+
+    /* Arama çubuğu */
+    input {
+      width: 50%;
+      padding: 15px;
+      font-size: 18px;
+      margin-top: 30px;
+      border: none;
+      border-radius: 30px;
+      background-color: #fff;
+      color: #333;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      outline: none;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+      background-color: #e6f0ff;
+    }
+
+    /* Dil seçici */
+    select {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      background-color: #fff;
+      color: #333;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    select:hover {
+      background-color: #f0f8ff;
+    }
+
+    /* Arama butonu */
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Arama sonuçları */
+    .results {
+      margin-top: 50px;
+    }
+
+    .results a {
+      display: block;
+      margin: 10px 0;
+      font-size: 20px;
+      color: #000000;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    .results a:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Dil Seçici ve Margin */
+    .lang-select {
+      margin-top: 30px;
+    }
+
+    /* Footer */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.2);
+      color: white;
+      padding: 10px 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Gelişmiş Arama Motoru</h1>
+
+  <div class="lang-select">
+    <label for="lang">Dil Seçin:</label>
+    <select id="lang">
+      <option value="tr">Türkçe</option>
+      <option value="en">English</option>
+      <option value="az">Azərbaycan</option>
+      <option value="ko">한국어 (Korece)</option>
+      <option value="fr">Français</option>
+      <option value="de">Deutsch</option>
+      <option value="es">Español</option>
+      <option value="ru">Русский</option>
+      <option value="ar">العربية (Arapça)</option>
+      <option value="ja">日本語 (Japonca)</option>
+    </select>
+  </div>
+
+  <input type="text" id="query" placeholder="Aramak istediğiniz bir şey yazın...">
+
+  <button onclick="search()">Ara</button>
+
+  <div class="results" id="results"></div>
+
+  <footer>
+    <p>Arama motoru, daha fazla site ile desteklenmiştir!</p>
+  </footer>
+
+  <script>
+    function search() {
+      const query = document.getElementById("query").value.trim();
+      const lang = document.getElementById("lang").value;
+      const resultsDiv = document.getElementById("results");
+      resultsDiv.innerHTML = ""; // Önceki sonuçları temizle
+
+      if (query === "") {
+        resultsDiv.innerHTML = "<p>Lütfen bir arama terimi girin.</p>";
+        return;
+      }
+
+      const encodedQuery = encodeURIComponent(query);
+
+      const sites = [
+        { name: "Wikipedia", url: `https://${lang}.wikipedia.org/wiki/Special:Search?search=${encodedQuery}` },
+        { name: "YouTube", url: `https://www.youtube.com/results?search_query=${encodedQuery}` },
+        { name: "Google", url: `https://www.google.com/search?q=${encodedQuery}&hl=${lang}` },
+        { name: "Google Haritalar", url: `https://www.google.com/maps/search/${encodedQuery}` },
+        { name: "GitHub", url: `https://github.com/search?q=${encodedQuery}&l=${lang}` },
+        { name: "GitHub Pages", url: `https://pages.github.com/search?q=${encodedQuery}` },
+        { name: "Bing", url: `https://www.bing.com/search?q=${encodedQuery}` },
+        { name: "Yahoo", url: `https://search.yahoo.com/search?p=${encodedQuery}` },
+        { name: "DuckDuckGo", url: `https://duckduckgo.com/?q=${encodedQuery}` },
+        { name: "Yandex", url: `https://yandex.com/search/?text=${encodedQuery}` }
+      ];
+
+      // Arama sonuçlarını ekle
+      for (const site of sites) {
+        const link = document.createElement("a");
+        link.href = site.url;
+        link.target = "_blank";
+        link.textContent = `${site.name} üzerinde ara: "${query}"`;
+        resultsDiv.appendChild(link);
+      }
+    }
+  </script>
+
+</body>
+</html>
