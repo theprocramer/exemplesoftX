@@ -115,7 +115,7 @@
 </head>
 <body>
 
-  <h1>Gelişmiş Arama Motoru</h1>
+  <h1>exemplesoftX</h1>
 
   <div class="lang-select">
     <label for="lang">Dil Seçin:</label>
@@ -140,7 +140,7 @@
   <div class="results" id="results"></div>
 
   <footer>
-    <p>Arama motoru, daha fazla site ile desteklenmiştir!</p>
+    <p>search</p>
   </footer>
 
   <script>
@@ -151,7 +151,7 @@
       resultsDiv.innerHTML = ""; // Önceki sonuçları temizle
 
       if (query === "") {
-        resultsDiv.innerHTML = "<p>Lütfen bir arama terimi girin.</p>";
+        resultsDiv.innerHTML = "<p>search</p>";
         return;
       }
 
@@ -175,7 +175,7 @@
         const link = document.createElement("a");
         link.href = site.url;
         link.target = "_blank";
-        link.textContent = `${site.name} üzerinde ara: "${query}"`;
+        link.textContent = `${site.name} - "${query}"`;
         resultsDiv.appendChild(link);
       }
     }
