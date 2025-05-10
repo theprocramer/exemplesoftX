@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <style>
+        /* General page settings */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Button container settings */
+        .settings-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Button style */
+        .settings-button {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Hover effect for buttons */
+        .settings-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Focus effect for buttons */
+        .settings-button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Button container -->
+    <div class="settings-container">
+        <button class="settings-button" onclick="window.location.href='https://github.com/theprocramer/examplesoftX'">Install on Server</button>
+        <button class="settings-button" onclick="window.location.href='webstore.html'">Extensions</button>
+        <button class="settings-button" onclick="window.location.href='pp.html'">Privacy Policy</button>
+        <button class="settings-button" onclick="window.location.href='https://github.com/theprocramer'">Other Projects</button>
+    </div>
+
+    <script>
+        // No JavaScript needed for now, all actions are handled by HTML links
+    </script>
+</body>
+</html>
