@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>exemplesoft</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .list-container {
+      width: 90%;
+      max-width: 500px;
+    }
+
+    .item {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .value {
+      color: #444;
+      margin-left: 10px;
+    }
+
+    .copy-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+
+    .copied-message {
+      color: green;
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="list-container">
+
+    <div class="item">
+      <div>
+        <span class="title">exemplesoft-metasearch:</span>
+        <span class="value">  </span>
+      </div>
+      <button class="copy-button" onclick="copyValue(this)">Copy Cookie</button>
+    </div>
+
+    <div class="item">
+      <div>
+        <span class="title">title 2:</span>
+        <span class="value">98765</span>
+      </div>
+      <button class="copy-button" onclick="copyValue(this)">Copy Cookie</button>
+    </div>
+
+    <div id="copiedMessage" class="copied-message">Kopyalandı!</div>
+
+  </div>
+
+  <script>
+    function copyValue(button) {
+      const value = button.parentElement.querySelector(".value").innerText;
+      navigator.clipboard.writeText(value).then(() => {
+        const msg = document.getElementById("copiedMessage");
+        msg.style.display = "block";
+        msg.textContent = `"${value}" kopyalandı!`;
+        setTimeout(() => {
+          msg.style.display = "none";
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
