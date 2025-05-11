@@ -127,35 +127,50 @@ const sites = [
   { title: "wikipedia", description: "en.wikipeida.org", url: "https://en.wikipeida.org" }
   { title: "wikipedia", description: "tr.wikipedia", url: "https://tr.wikipedia.org" } 
   { title: "wikipedia", description: "az.wikipedia", url: "https://az.wikipedia.org" }   
+  { title: "Vercel", description: "Hızlı ve verimli frontend platformu.", url: "https://vercel.com" },
+  { title: "Dribbble", description: "Tasarımcılar için bir portföy ve keşif platformu.", url: "https://dribbble.com" },
+  { title: "Awwwards", description: "En iyi web tasarımlarını ödüllendiren platform.", url: "https://awwwards.com" },
+  { title: "CSS-Tricks", description: "Web geliştirme ve tasarım ipuçları.", url: "https://css-tricks.com" },
+  { title: "Adobe Portfolio", description: "Adobe'nin sunduğu portföy oluşturma aracı.", url: "https://portfolio.adobe.com" },
+  { title: "Behance", description: "Sanatçılar ve tasarımcılar için portföy platformu.", url: "https://behance.net" },
+  { title: "CodePen", description: "Kod paylaşımı ve web tasarımı uygulamaları.", url: "https://codepen.io" },
+  { title: "GitHub", description: "Açık kaynak projelerin paylaşıldığı platform.", url: "https://github.com" },
+  { title: "Stack Overflow", description: "Geliştiriciler için soru-cevap platformu.", url: "https://stackoverflow.com" },
+  { title: "MDN Web Docs", description: "Mozilla'nın web geliştirme dökümantasyonları.", url: "https://developer.mozilla.org" },
+  { title: "Smashing Magazine", description: "Web tasarımı ve geliştirmeyle ilgili kaynaklar.", url: "https://smashingmagazine.com" }
+
 ];
 
+// Arama fonksiyonu
 function searchSites() {
-    let query = document.getElementById('search').value.toLowerCase();
-    let resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = ''; // Clear previous results
-
-    // Filter the sites based on the search query
-    let filteredSites = sites.filter(site => {
-        return site.title.toLowerCase().includes(query) || site.description.toLowerCase().includes(query);
-    });
-
-    // Display the results
-    filteredSites.forEach(site => {
-        let card = document.createElement('div');
-        card.classList.add('site-card');
-        card.innerHTML = `
-            <h2><a href="${site.url}" target="_blank">${site.title}</a></h2>
-            <p>${site.description}</p>
-        `;
-        resultsDiv.appendChild(card);
-    });
-
-    // If no results, show a message
-    if (filteredSites.length === 0) {
-        resultsDiv.innerHTML = '<p>No results found.</p>';
-    }
+  const query = document.getElementById('search').value.toLowerCase();
+  const filteredSites = sites.filter(site => 
+    site.title.toLowerCase().includes(query) || 
+    site.description.toLowerCase().includes(query)
+  );
+  displaySites(filteredSites);
 }
 
+// Sonuçları gösterme fonksiyonu
+function displaySites(filteredSites) {
+  const resultsContainer = document.getElementById('results');
+  resultsContainer.innerHTML = '';
+  filteredSites.forEach(site => {
+    const card = document.createElement('div');
+    card.className = 'site-card';
+    card.innerHTML = `
+      <h2>${site.title}</h2>
+      <p>${site.description}</p>
+      <a href="${site.url}" target="_blank">${site.url}</a>
+    `;
+    resultsContainer.appendChild(card);
+  });
+}
+
+// Başlangıçta tüm siteleri göster
+displaySites(sites);
+
+// Tema değiştirme fonksiyonu
 function toggleTheme() {
-    document.body.classList.toggle('dark');
+  document.body.classList.toggle('dark');
 }
