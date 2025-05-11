@@ -2,127 +2,140 @@
 <html lang="az">
 <head>
   <meta charset="UTF-8">
-  <title>Exemplesoft</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>exemplesoftX</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root {
+      --bg-color: #f5f5f5;
+      --text-color: #222;
+      --card-color: #fff;
+      --border-color: #ddd;
+      --link-color: #1a73e8;
+    }
+
+    body.dark {
+      --bg-color: #1e1e1e;
+      --text-color: #eee;
+      --card-color: #2c2c2c;
+      --border-color: #444;
+      --link-color: #4d90fe;
     }
 
     body {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #0e0e14;
+      background-color: var(--border-color);
+      color: var(--text-color);
       font-family: 'Segoe UI', sans-serif;
-      color: #fff;
+      margin: 0;
+      transition: background 0.3s, color 0.3s;
     }
 
-    .box {
-      text-align: center;
-      background: #1a1a26;
-      padding: 40px 30px;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-    }
-
-    .logo {
-      font-size: 36px;
-      font-weight: bold;
-      margin-bottom: 30px;
-      letter-spacing: 2px;
-    }
-
-    .logo span {
-      display: inline-block;
-    }
-
-    /* Rəngli hərflər */
-    .logo .e { color: #00d0ff; }
-    .logo .x { color: #ff3b3b; }
-    .logo .m { color: #ffdd00; }
-    .logo .p { color: #00ff88; }
-    .logo .l { color: #00bcd4; }
-    .logo .s { color: #ffa500; }
-    .logo .o { color: #9c27b0; }
-    .logo .f { color: #00e676; }
-    .logo .t { color: #f50057; }
-
-    .btn {
-      background: #27293d;
-      color: white;
-      border: none;
-      padding: 15px 20px;
-      border-radius: 12px;
-      margin: 10px 0;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      width: 250px;
-    }
-
-    .btn:hover {
-      background: #3b3d56;
-      transform: translateY(-2px);
-    }
-
-    .sub-buttons {
+    header {
+      background: linear-gradient(135deg, #2F2F2F, #8f94fb);
+      border-bottom: 1px solid var(--border-color);
+      padding: 20px;
       display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 15px;
+      justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
     }
 
-    .sub-buttons button {
-      flex: 1;
-      min-width: 100px;
-      padding: 12px;
+    header h1 {
+      margin: 0;
+      font-size: 24px;
     }
 
-    .settings-btn {
-      margin-top: 20px;
-      font-size: 14px;
-      opacity: 0.7;
-      background: transparent;
-      border: 1px solid #444;
+    .toggle-btn {
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: var(--link-color);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
     }
 
-    .settings-btn:hover {
-      background: #2e2f43;
-      opacity: 1;
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    #search {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      border: 2px solid var(--border-color);
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-sizing: border-box;
+    }
+
+    .site-card {
+      background-color: var(--card-color);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      border: 1px solid var(--border-color);
+    }
+
+    .site-card:hover {
+      transform: scale(1.01);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+    }
+
+    .site-card h2 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .site-card p {
+      margin: 0 0 12px;
+      color: var(--text-color);
+      opacity: 0.8;
+    }
+
+    .site-card a {
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header h1 {
+        font-size: 20px;
+      }
+
+      .toggle-btn {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .site-card h2 {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="box">
-    <div class="logo">
-      <span class="e">E</span>
-      <span class="x">x</span>
-      <span class="e">e</span>
-      <span class="m">m</span>
-      <span class="p">p</span>
-      <span class="l">l</span>
-      <span class="e">e</span>
-      <span class="s">s</span>
-      <span class="o">o</span>
-      <span class="f">f</span>
-      <span class="t">t</span>
-    </div>
+  <header>
+    <h1>Exemplesoft Search</h1>
+    <button class="toggle-btn" onclick="toggleTheme()">Tema Değiştir</button>
+  </header>
 
-    <button class="btn" onclick="location.href='websites.html'">🔍 search</button>
-
-    <div class="sub-buttons">
-      <button class="btn" onclick="location.href='addcookie.html'">add cookie</button>
-      <button class="btn" onclick="location.href='webstore.html'">web store</button>
-    </div>
-
-    <button class="btn settings-btn" onclick="location.href='settings.html'">⚙</button>
+  <div class="container">
+    <input type="text" id="search" placeholder="Search" onkeyup="searchSites()">
+    <div id="results"></div>
   </div>
 
+  <script src="websites.js"></script>
 </body>
 </html>
