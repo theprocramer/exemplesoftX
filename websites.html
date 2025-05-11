@@ -265,7 +265,7 @@
   { title: "Amazon", description: "E-ticaret ve teknoloji şirkəti.", url: "https://amazon.com" }, 
   { title: "werarew hesabatı", description: "tablo uykulamas;", url: "https://theprocramer.github.io/werarew-sheet/" }, 
   { title: "examplesoft mühərriki", description: "oyun yaratmaq oyun yaratmaq", url: "https://theprocramer.github.io/examplesoft-engine" }
-  
+
     ];
 
     // Arama fonksiyonu
@@ -285,11 +285,11 @@
       filteredSites.forEach(site => {
         const card = document.createElement('div');
         card.className = 'site-card';
-        card.innerHTML = 
+        card.innerHTML = `
           <h2>${site.title}</h2>
           <p>${site.description}</p>
           <a href="${site.url}" target="_blank">${site.url}</a>
-        ;
+        `;
         resultsContainer.appendChild(card);
       });
     }
