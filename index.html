@@ -5,123 +5,94 @@
   <title>Exemplesoft</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * {
-      box-sizing: border-box;
+    body {
       margin: 0;
       padding: 0;
-    }
-
-    body {
-      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #121212;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      background: #0e0e14;
-      font-family: 'Segoe UI', sans-serif;
-      color: #fff;
-    }
-
-    .box {
-      text-align: center;
-      background: #1a1a26;
-      padding: 40px 30px;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      justify-content: center;
+      height: 100vh;
+      color: #e8eaed;
     }
 
     .logo {
       font-size: 36px;
       font-weight: bold;
-      margin-bottom: 30px;
-      letter-spacing: 2px;
+      margin-bottom: 40px;
     }
 
-    .logo span {
-      display: inline-block;
+    .search-box {
+      width: 100%;
+      max-width: 600px;
+      height: 44px;
+      border: 1px solid #3c4043;
+      border-radius: 24px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      background: #202124;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.6);
+      cursor: pointer;
+      transition: box-shadow 0.2s;
     }
 
-    /* Rəngli hərflər */
-    .logo .e { color: #00d0ff; }
-    .logo .x { color: #ff3b3b; }
-    .logo .m { color: #ffdd00; }
-    .logo .p { color: #00ff88; }
-    .logo .l { color: #00bcd4; }
-    .logo .s { color: #ffa500; }
-    .logo .o { color: #9c27b0; }
-    .logo .f { color: #00e676; }
-    .logo .t { color: #f50057; }
+    .search-box:hover {
+      box-shadow: 0 1px 8px rgba(255,255,255,0.1);
+    }
+
+    .search-placeholder {
+      flex: 1;
+      color: #9aa0a6;
+      font-size: 16px;
+      user-select: none;
+    }
+
+    .search-icon {
+      font-size: 18px;
+      color: #9aa0a6;
+    }
+
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
     .btn {
-      background: #27293d;
-      color: white;
-      border: none;
-      padding: 15px 20px;
-      border-radius: 12px;
-      margin: 10px 0;
-      font-size: 16px;
+      padding: 10px 20px;
+      border: 1px solid #3c4043;
+      background-color: #303134;
+      color: #e8eaed;
+      font-size: 14px;
+      border-radius: 4px;
       cursor: pointer;
-      transition: all 0.3s ease;
-      width: 250px;
+      transition: background-color 0.2s, box-shadow 0.2s;
     }
 
     .btn:hover {
-      background: #3b3d56;
-      transform: translateY(-2px);
-    }
-
-    .sub-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 15px;
-      flex-wrap: wrap;
-    }
-
-    .sub-buttons button {
-      flex: 1;
-      min-width: 100px;
-      padding: 12px;
-    }
-
-    .settings-btn {
-      margin-top: 20px;
-      font-size: 14px;
-      opacity: 0.7;
-      background: transparent;
-      border: 1px solid #444;
-    }
-
-    .settings-btn:hover {
-      background: #2e2f43;
-      opacity: 1;
+      background-color: #3c4043;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.2);
     }
   </style>
 </head>
 <body>
 
-  <div class="box">
-    <div class="logo">
-      <span class="e">E</span>
-      <span class="x">x</span>
-      <span class="e">e</span>
-      <span class="m">m</span>
-      <span class="p">p</span>
-      <span class="l">l</span>
-      <span class="e">e</span>
-      <span class="s">s</span>
-      <span class="o">o</span>
-      <span class="f">f</span>
-      <span class="t">t</span>
-    </div>
+  <div class="logo">Exemplesoft</div>
 
-    <button class="btn" onclick="location.href='websites.html'">🔍 search</button>
+  <div class="search-box" onclick="location.href='websites.html'">
+    <div class="search-placeholder">Axtar...</div>
+    <div class="search-icon">🔍</div>
+  </div>
 
-    <div class="sub-buttons">
-      <button class="btn" onclick="location.href='addcookie.html'">add cookie</button>
-      <button class="btn" onclick="location.href='webstore.html'">web store</button>
-    </div>
-
-    <button class="btn settings-btn" onclick="location.href='settings.html'">⚙</button>
+  <div class="buttons">
+    <button class="btn" onclick="location.href='addcookie.html'">Add Cookie</button>
+    <button class="btn" onclick="location.href='webstore.html'">Web Store</button>
+    <button class="btn" onclick="location.href='settings.html'">⚙ Ayarlar</button>
   </div>
 
 </body>
