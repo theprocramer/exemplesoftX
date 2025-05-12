@@ -5,39 +5,59 @@
   <title>Exemplesoft</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    :root {
+      --bg-color: #121212;
+      --text-color: #e8eaed;
+      --box-color: #202124;
+      --btn-bg: #303134;
+      --btn-border: #3c4043;
+      --placeholder-color: #9aa0a6;
+    }
+
+    body.light {
+      --bg-color: #ffffff;
+      --text-color: #202124;
+      --box-color: #f1f3f4;
+      --btn-bg: #e8eaed;
+      --btn-border: #dadce0;
+      --placeholder-color: #5f6368;
+    }
+
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background: #121212;
+      background: var(--bg-color);
+      color: var(--text-color);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      color: #e8eaed;
+      transition: background 0.3s, color 0.3s;
     }
 
     .logo {
       font-size: 36px;
       font-weight: bold;
       margin-bottom: 40px;
-      color: orange; /* Narıncı rəng */
+      color: orange;
+      transition: color 0.3s;
     }
 
     .search-box {
       width: 100%;
       max-width: 600px;
       height: 44px;
-      border: 1px solid #3c4043;
+      border: 1px solid var(--btn-border);
       border-radius: 24px;
       padding: 0 20px;
       display: flex;
       align-items: center;
-      background: #202124;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.6);
+      background: var(--box-color);
+      box-shadow: 0 1px 6px rgba(0,0,0,0.3);
       cursor: pointer;
-      transition: box-shadow 0.2s;
+      transition: background 0.3s, box-shadow 0.3s;
     }
 
     .search-box:hover {
@@ -46,14 +66,14 @@
 
     .search-placeholder {
       flex: 1;
-      color: #9aa0a6;
+      color: var(--placeholder-color);
       font-size: 16px;
       user-select: none;
     }
 
     .search-icon {
       font-size: 18px;
-      color: #9aa0a6;
+      color: var(--placeholder-color);
     }
 
     .buttons {
@@ -66,9 +86,9 @@
 
     .btn {
       padding: 10px 20px;
-      border: 1px solid #3c4043;
-      background-color: #303134;
-      color: #e8eaed;
+      border: 1px solid var(--btn-border);
+      background-color: var(--btn-bg);
+      color: var(--text-color);
       font-size: 14px;
       border-radius: 4px;
       cursor: pointer;
@@ -76,12 +96,32 @@
     }
 
     .btn:hover {
-      background-color: #3c4043;
+      background-color: var(--btn-border);
       box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    }
+
+    .toggle-mode {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 14px;
+      padding: 8px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--btn-border);
+      background: var(--btn-bg);
+      color: var(--text-color);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .toggle-mode:hover {
+      background: var(--btn-border);
     }
   </style>
 </head>
 <body>
+
+  <button class="toggle-mode" onclick="toggleMode()">🌙 / ☀️</button>
 
   <div class="logo">Exemplesoft</div>
 
@@ -95,6 +135,12 @@
     <button class="btn" onclick="location.href='webstore.html'">Web Store</button>
     <button class="btn" onclick="location.href='settings.html'">⚙ Ayarlar</button>
   </div>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('light');
+    }
+  </script>
 
 </body>
 </html>
