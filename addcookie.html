@@ -77,7 +77,7 @@
     function goToPage() {
       const input = document.getElementById("projectName").value.trim();
       if (input !== "") {
-        const url = `https://${input}/index.html`;
+        const url = `${input}/index.html`;
         window.location.href = url;
       } else {
         alert("Lütfen bir proje adı gir.");
