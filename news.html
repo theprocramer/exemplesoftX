@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>exemplesoftX</title>
+  <style>
+    :root {
+      --bg-color: #f5f5f5;
+      --text-color: #222;
+      --card-color: #fff;
+      --border-color: #ddd;
+      --link-color: #1a73e8;
+    }
+
+    body.dark {
+      --bg-color: #1e1e1e;
+      --text-color: #eee;
+      --card-color: #2c2c2c;
+      --border-color: #444;
+      --link-color: #4d90fe;
+    }
+
+    body {
+      background-color: var(--border-color);
+      color: var(--text-color);
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2F2F2F, #8f94fb);
+      border-bottom: 1px solid var(--border-color);
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .toggle-btn {
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: var(--link-color);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    #search {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      border: 2px solid var(--border-color);
+      border-radius: 10px;
+      background-color: linear-gradient(135deg, #2F2F2F, #8f94fb);
+      color: #2F2F2F;
+      margin-bottom: 30px;
+      box-sizing: border-box;
+    }
+
+    .site-card {
+      background-color: var(--card-color);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      border: 1px solid var(--border-color);
+    }
+
+    .site-card:hover {
+      transform: scale(1.01);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+    }
+
+    .site-card h2 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .site-card p {
+      margin: 0 0 12px;
+      color: var(--text-color);
+      opacity: 0.8;
+    }
+
+    .site-card a {
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header h1 {
+        font-size: 20px;
+      }
+
+      .toggle-btn {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .site-card h2 {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Exemplesoft Search</h1>
+    <button class="toggle-btn" onclick="toggleTheme()">   </button>
+  </header>
+
+  <div class="container">
+    <input type="text" id="search" placeholder="Search" onkeyup="searchSites()">
+    <div id="results"></div>
+  </div>
+
+  <script>
+    const sites = [
+    { title: "merhaba", description: "merhaba bu arama motoruna gelen yeni günceleme ile birlikde haber özeliyi eklendi bu özelik sayesinde istenilen zaman haber okuyub gündemi takib ede bilirsiniz", url: "" },
+    { title: "hello", description: "Hello, with the new update to this search engine, the news feature has been added. Thanks to this feature, you can read news and follow the agenda whenever you want.", url: "" } 
+    { title: "salam", description: "Salam, bu axtarış sisteminə yeni yeniləmə ilə xəbər funksiyası əlavə edildi. Bu xüsusiyyət sayəsində istədiyiniz zaman xəbərləri oxuya və gündəmi izləyə bilərsiniz.", url: "" },
+
+    
+  ];
+
+    // Arama fonksiyonu
+    function searchSites() {
+      const query = document.getElementById('search').value.toLowerCase();
+      const filteredSites = sites.filter(site => 
+        site.title.toLowerCase().includes(query) || 
+        site.description.toLowerCase().includes(query)
+      );
+      displaySites(filteredSites);
+    }
+
+    // Sonuçları gösterme fonksiyonu
+    function displaySites(filteredSites) {
+      const resultsContainer = document.getElementById('results');
+      resultsContainer.innerHTML = '';
+      filteredSites.forEach(site => {
+        const card = document.createElement('div');
+        card.className = 'site-card';
+        card.innerHTML = `
+          <h2>${site.title}</h2>
+          <p>${site.description}</p>
+          <a href="${site.url}" target="_blank">${site.url}</a>
+        `;
+        resultsContainer.appendChild(card);
+      });
+    }
+
+    // Başlangıçta tüm siteleri göster
+    displaySites(sites);
+
+    // Tema değiştirme fonksiyonu
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+
+</body>
+</html>
